@@ -3,6 +3,10 @@ api_version: 1
 threadsafe: true
 
 handlers:
+- url: /static
+  static_dir: static
+
+# put this after all other handlers
 - url: /.*
   script: main.app
 
