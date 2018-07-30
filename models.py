@@ -5,11 +5,11 @@ class Event(ndb.Model):
     title = ndb.StringProperty(required=True, default="")
     address = ndb.StringProperty(required=True, default="")
     type = ndb.StringProperty(required=True, default="")
-    date = ndb.DateProperty(required=True, default="")
-    time_start = ndb.TimeProperty(required=True, default="") #need to learn how this works
-    time_end = ndb.TimeProperty(required=True, default="")
+    date = ndb.StringProperty(required=True)
+    time_start = ndb.StringProperty(required=True) #need to learn how this works
+    time_end = ndb.StringProperty(required=True)
     description = ndb.StringProperty(default="")
-    people_needed = ndb.IntegerProperty(required=True, default="")
+    people_needed = ndb.IntegerProperty(required=True, default=0)
 
 class User(ndb.Model):
     first_name = ndb.StringProperty(required=True)
