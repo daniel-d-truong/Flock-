@@ -9,6 +9,7 @@ class Event(ndb.Model):
     time_start = ndb.TimeProperty(required=True, default="") #need to learn how this works
     time_end = ndb.TimeProperty(required=True, default="")
     description = ndb.StringProperty(default="")
+    people_needed = ndb.IntegerProperty(required=True, default="")
 
 class User(ndb.Model):
     first_name = ndb.StringProperty(required=True)
