@@ -16,6 +16,7 @@ class User(ndb.Model):
     last_name = ndb.StringProperty(required=True)
     address = ndb.StringProperty(required=True)
     email_address = ndb.StringProperty(required=True)
+    id = ndb.StringProperty(required=True)
 
 class Relation(ndb.Model):
     user_key = ndb.KeyProperty(User)

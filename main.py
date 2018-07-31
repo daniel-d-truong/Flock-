@@ -3,7 +3,11 @@ import jinja2
 import os
 from models import Event, User, Relation
 from google.appengine.ext import ndb
+from google.appengine.api import users
 
+events_dict = {
+
+}
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -17,7 +21,6 @@ class WelcomeHandler(webapp2.RequestHandler): #main page
 
 class HostEventHandler(webapp2.RequestHandler): #making events
     def get(self):
-        self.response.write('Write down info in order to host your event.')
         form_template = JINJA_ENVIRONMENT.get_template('templates/form.html')
         self.response.write(form_template.render())
 
@@ -39,14 +42,24 @@ class ShowConfirmationHandler(webapp2.RequestHandler):
         store = Event(name=vars_template['name'], description = vars_template['description'],
             type = vars_template['type'], date=vars_template['date'], time_start=vars_template['time_start'],
             time_end=vars_template['time_end'], address=vars_template['address'], people_needed=vars_template['people_needed'])
-        k = store.put()
-
+        key = store.put()
 
 class FindEventHandler(webapp2.RequestHandler): #newsfeed and searching for events
     def get(self):
-        self.response.write('Let\'s find an event!!')
         newsfeed_template = JINJA_ENVIRONMENT.get_template('templates/newsfeed.html')
         self.response.write(newsfeed_template.render())
+        list_of_events = Event.query().fetch()
+        # print (list_of_events)
+        html_vars= {
+
+        }
+
+        for item in range(len(list_of_events)):
+            html_vars[list_of_events[item].put()] = list_of_events[item]
+
+        for i in html_vars:
+            self.response.write((html_vars[i]))
+            self.response.write('<br>')
 
 app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
