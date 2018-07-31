@@ -63,10 +63,10 @@ class FindEventHandler(webapp2.RequestHandler): #newsfeed and searching for even
 
         for i in html_vars:
             temp_event = html_vars[i]
-            self.response.write('<div style=height:300px>' + temp_event.name + temp_event.title + temp_event.address
-                + temp_event.type + temp_event.date + temp_event.time_start + temp_event.time_end + temp_event.description
-                + str(temp_event.people_needed) + '</div>')
-            self.response.write('<br>')
+            # self.response.write('<div style=height:300px>' + temp_event.name + temp_event.title + temp_event.address
+            #     + temp_event.type + temp_event.date + temp_event.time_start + temp_event.time_end + temp_event.description
+            #     + str(temp_event.people_needed) + '</div>')
+            # self.response.write('<br>')
         self.response.write(newsfeed_template.render())
 
 #class SignUpHandler(webapp2.RequestHandler)
