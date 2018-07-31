@@ -19,12 +19,23 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 class WelcomeHandler(webapp2.RequestHandler): #main page
     def get(self):
         welcome_template = JINJA_ENVIRONMENT.get_template('templates/welcome.html')
-        self.response.write(welcome_template.render())
+        self.response.write(welcome_template.render({'login_url': users.create_login_url('/')}))
 
 class HostEventHandler(webapp2.RequestHandler): #making events
     def get(self):
+        template_var = {} //logout
+        user = users.get_current_user()
+        if user:
+            nickname = user.nickname()
+            logout_url = users.create_logout_url('/')
+            template_var = {
+                "logout_url": logout_url,
+                "nickname": nickname
+            }
+        else:
+            self.redirect('/')
         form_template = JINJA_ENVIRONMENT.get_template('templates/form.html')
-        self.response.write(form_template.render())
+        self.response.write(form_template.render(template_var))
 
 
 class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
@@ -89,6 +100,8 @@ class RetrieveEventsHandler(webapp2.RequestHandler):
             #'created_at':
             })
         self.response.write(json.dumps(new_events_list))
+
+
 
 app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
