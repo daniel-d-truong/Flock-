@@ -24,7 +24,11 @@ class HostEventHandler(webapp2.RequestHandler): #making events
         form_template = JINJA_ENVIRONMENT.get_template('templates/form.html')
         self.response.write(form_template.render())
 
+<<<<<<< Updated upstream
 class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
+=======
+class ShowConfirmationHandler(webapp2.RequestHandler):
+>>>>>>> Stashed changes
     def post(self):
         vars_template = {
             'name': self.request.get('name'),
@@ -41,7 +45,11 @@ class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
         store = Event(name=vars_template['name'], description = vars_template['description'],
             type = vars_template['type'], date=vars_template['date'], time_start=vars_template['time_start'],
             time_end=vars_template['time_end'], address=vars_template['address'], people_needed=vars_template['people_needed'])
+<<<<<<< Updated upstream
         key = store.put()
+=======
+        k = store.put()
+>>>>>>> Stashed changes
 
 class FindEventHandler(webapp2.RequestHandler): #newsfeed and searching for events
     def get(self):
