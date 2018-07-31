@@ -1,9 +1,11 @@
 /* CSS file for the welcome page */
-
+body {
+  background-image: url("https://farm1.staticflickr.com/848/42862362115_eb15c5c54e_h.jpg");
+}
 .button {
   display: block;
-  width: 115px;
-  height: 25px;
+  width: 250px;
+  height: 200px;
   background: #4E9CAF;
   padding: 10px;
   text-align: center;
