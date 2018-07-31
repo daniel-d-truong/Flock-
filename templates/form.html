@@ -2,9 +2,11 @@
 
  <html>
  <head>
-   <title> Welcome to Event Forms </title>
+   <title>Post a new event</title>
+   <link href="/static/style.css" rel="stylesheet" />
  </head>
  <body>
+<<<<<<< HEAD
    <form method = "post" action = "/confirm">
      Name of Event: <br>
      <input type = "text" id= "event-name" name = "name"> </br>
@@ -24,5 +26,64 @@
      <input type = "text" id= "population-count" name = "people_needed"> </br>
 
      <button type="submit" value="Go!"></button>
+=======
+   <h1>New Activity</h1>
+
+   <form name="new-event" method = "post" action = "/confirm">
+
+     <label class="question-desciption"> Name of Event: </label><br>
+     <input type = "text" id= "event-name" name = "name" required></br>
+
+     <label class="question-desciption"> Description of Event: </label><br>
+     <input type = "text" id= "event-description" name = "description" required></br>
+
+     <label class="question-desciption"> Type of Event: </label><br>
+     <input type = "text" id= "event-type" name = "type" required></br>
+
+     <label class="question-desciption"> Date of Event: </label><br>
+     <input type = "text" id= "event-date" name = "date" required></br>
+
+     <label class="question-desciption"> Start Time of Event:</label><br>
+     <input type = "text" id= "event-begin" name = "time_start" required></br>
+
+     <label class="question-desciption"> End Time of Event: </label><br>
+     <input type = "text" id= "event-end" name = "time_end" required></br>
+
+     <label class="question-desciption"> Address of Event: </label><br>
+     <input type = "text" id= "event-address" name = "address" required> </br>
+
+     <label class="question-desciption"> Number of People Needed: </label><br>
+     <input type = "number" id= "population-count" name = "people_needed" required pattern=[1-50]> </br>
+
+     <br/><input type = "submit" value="Submit" id= "submit-button" onclick="validateForm()">
+
+     <script>
+
+      function validateForm() {
+        let fields = ['event-name', 'event-description', ' event-date', 'event-begin', 'event-end', 'event-address', 'population-count'];
+        let length = fields.length;
+        let fieldname;
+
+        for (i=0; i<length; i++) {
+          fieldname = fields[i];
+          if (document.forms['new-event'][fieldname].value === "") {
+            alert(fieldname + " can not be empty.")
+            return false;
+          }
+        }
+        return true;
+      };
+
+      function confirmSubmit() {
+        
+      };
+
+      function validateAndConfirm(){
+
+      };
+
+     </script>
+
+>>>>>>> 8340a8a36c481716d6b55b63eaae325f8d5b4e86
  </body>
 </html>
