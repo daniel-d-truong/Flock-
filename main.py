@@ -24,8 +24,7 @@ class HostEventHandler(webapp2.RequestHandler): #making events
         form_template = JINJA_ENVIRONMENT.get_template('templates/form.html')
         self.response.write(form_template.render())
 
-
-class ShowConfirmationHandler(webapp2.RequestHandler):
+class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
     def post(self):
         vars_template = {
             'name': self.request.get('name'),
@@ -60,6 +59,8 @@ class FindEventHandler(webapp2.RequestHandler): #newsfeed and searching for even
         for i in html_vars:
             self.response.write((html_vars[i]))
             self.response.write('<br>')
+
+#class SignUpHandler(webapp2.RequestHandler)
 
 app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
