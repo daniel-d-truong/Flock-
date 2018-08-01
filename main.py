@@ -27,8 +27,10 @@ class PutUserHandler(webapp2.RequestHandler):
             'state': self.request.get('state'),
             'id': users.get_current_user().user_id()
         }
+
         new_profile=Profile(first_name=template_vars['first_name'], last_name=template_vars['last_name'],
             city=template_vars['city'], state=template_vars['state'], id=template_vars['id'])
+
         print "wowww"
         new_profile.put()
         time.sleep(0.5)
@@ -134,6 +136,9 @@ class RetrieveEventsHandler(webapp2.RequestHandler):
             })
         self.response.write(json.dumps(new_events_list))
 
+class AddUserToEvent(webapp2.RequestHandler):
+    def get(self):
+        print self.request.get("k")
 
 
 app = webapp2.WSGIApplication([
@@ -142,5 +147,6 @@ app = webapp2.WSGIApplication([
     ('/confirm', ShowConfirmationHandler),
     ('/newsfeed', FindEventHandler),
     ('/retrieve', RetrieveEventsHandler),
-    ('/putuser', PutUserHandler)
+    ('/putuser', PutUserHandler),
+    ('/event', AddUserToEvent)
 ], debug=True)
