@@ -1,7 +1,12 @@
+<<<<<<< HEAD:static/welcome.css
 /* CSS file for the welcome page */
 body {
   background-image: url("https://farm1.staticflickr.com/848/42862362115_eb15c5c54e_h.jpg");
 }
+=======
+/* buttons  */
+
+>>>>>>> eb68544b5ddc35a9f0e735b203bfd3facc79d50e:static/style.css
 .button {
   display: block;
   width: 310px;
@@ -40,4 +45,13 @@ body {
 .button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+/* input */
+
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
 }
