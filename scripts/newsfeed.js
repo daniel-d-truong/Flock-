@@ -33,7 +33,7 @@ function insert_event(desc, count){
    left.textContent += desc.address +" " + desc.people_needed + " | ";
    right.textContent += desc.type + " " + desc.date + " " + desc.time_start + " to " + desc.time_end;
 
-   buttonList.push(interestButton)
+   //buttonList.push(interestButton)
    interestButton.addEventListener("click", () =>
       alert("yaay, you are interested!"))
    //console.log(1)
@@ -56,6 +56,3 @@ function show_events() {
 show_events()
 
 //event listener for interest button
-but = document.querySelectorAll('button');
-console.log(but)
-console.log(buttonList)

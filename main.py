@@ -7,9 +7,9 @@ from models import Event, User, Relation
 from google.appengine.ext import ndb
 from google.appengine.api import users
 
-events_dict = {
-
-}
+# events_dict = {
+#
+# }
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
