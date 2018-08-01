@@ -7,9 +7,9 @@ from models import Event, User, Relation
 from google.appengine.ext import ndb
 from google.appengine.api import users
 
-events_dict = {
-
-}
+# events_dict = {
+#
+# }
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -36,7 +36,8 @@ class HostEventHandler(webapp2.RequestHandler): #making events
             self.redirect('/')
         form_template = JINJA_ENVIRONMENT.get_template('templates/form.html')
         self.response.write(form_template.render(template_var))
-        
+
+
 class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
     def post(self):
         vars_template = {
@@ -55,6 +56,7 @@ class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
         store = Event(name=vars_template['name'], description = vars_template['description'],
             type = vars_template['type'], date=vars_template['date'], time_start=vars_template['time_start'],
             time_end=vars_template['time_end'], address=vars_template['address'], people_needed=vars_template['people_needed'])
+
         key = store.put()
 
 class FindEventHandler(webapp2.RequestHandler): #newsfeed and searching for events
