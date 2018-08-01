@@ -1,45 +1,58 @@
 /* CSS file for the welcome page */
 body {
-  background-image: url("https://farm1.staticflickr.com/848/42862362115_eb15c5c54e_h.jpg");
+  background-image: url("https://farm2.staticflickr.com/1796/28842628257_edb3dfe34b_b.jpg");
 }
 
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 200px;
+  width: 200px;
+  margin-top: 50px;
+}
+
+a {
+  font-family: 'Coming Soon', cursive;
+  font-size: 40px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 120px;
+}
+
+h1 {
+  font-family: 'Rock Salt', cursive;
+  font-size: 100px;
+  text-align: center;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
 
 .button {
   display: block;
-  width: 310px;
+  width: 410px;
   height: 140px;
-  background: #4E9CAF;
-  padding: 10px;
   text-align: center;
   border-radius: 5px;
+  border-color: white;
   color: black;
   font-weight: bold;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 0 auto;
+  margin: auto;
+  color: black;
+  background-color: #B6EBFF;
+  box-shadow: 0 0 0 4px #fff;
 }
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+#buttons {
+  margin-left: 250px;
+  margin-right: 250px;
 }
 
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+#leftbutton {
+  float: left;
 }
 
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
+#rightbutton {
+  float: right;
 }
