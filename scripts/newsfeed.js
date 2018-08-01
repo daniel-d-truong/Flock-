@@ -17,12 +17,17 @@ function insert_event(desc, count){
       new_element('div', {'id': 'left-side'+count, 'style': 'width=50%', 'style': 'display: inline-block'}),
       new_element('div', {'id': 'right-side'+count, 'style': 'width=50%', 'style': 'display: inline-block'})
   ])]);
+
    let container = document.querySelector("#news-feed");
    container.insertBefore(new_div, container.children[0]);
    let left = document.querySelector("#left-side"+count);
    let right = document.querySelector("#right-side"+count);
-   left.textContent += desc.type;
-   right.textContent += desc.time_start;
+
+   document.querySelector('.event-header').textContent += desc.name;
+
+   left.textContent += desc.address +" " + desc.people_needed + " | ";
+   right.textContent += desc.type + " " + desc.date + " " + desc.time_start + " to " + desc.time_end;
+
    console.log(1)
 }
 
