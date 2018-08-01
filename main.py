@@ -16,19 +16,9 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-class WelcomeHandler(webapp2.RequestHandler): #main page
-    def get(self):
-        us = users.get_current_user()
-
-        current_users=Profile.query(Profile.id==us.user_id()).fetch()
-        if current_users==[]:
-            template=JINJA_ENVIRONMENT.get_template('templates/user-signup.html')
-            self.response.write(template.render())
-        else:
-            welcome_template = JINJA_ENVIRONMENT.get_template('templates/welcome.html')
-            self.response.write(welcome_template.render({'login_url': users.create_login_url('/')}))
-
+class PutUserHandler(webapp2.RequestHandler):
     def post(self):
+        us = users.get_current_user()
         template_vars={
             'first_name': self.request.get('firstname'),
             'last_name': self.request.get('lastname'),
@@ -38,14 +28,32 @@ class WelcomeHandler(webapp2.RequestHandler): #main page
         }
         new_profile=Profile(first_name=template_vars['first_name'], last_name=template_vars['last_name'],
             city=template_vars['city'], state=template_vars['state'], id=template_vars['id'])
-        key = new_profile.put()
-        welcome_template = JINJA_ENVIRONMENT.get_template('templates/welcome.html')
-        self.response.write(welcome_template.render({'login_url': users.create_login_url('/')}))
+        print "woww"
+        new_profile.put()
+        self.redirect('/')
+
+class WelcomeHandler(webapp2.RequestHandler): #main page
+    def get(self):
+        us = users.get_current_user()
+
+        current_users=Profile.query(Profile.id==us.user_id()).fetch()
+        print current_users
+        if current_users==[]:
+            template=JINJA_ENVIRONMENT.get_template('templates/user-signup.html')
+            self.response.write(template.render())
+        else:
+            welcome_template = JINJA_ENVIRONMENT.get_template('templates/welcome.html')
+            self.response.write(welcome_template.render({'login_url': users.create_login_url('/')}))
+
+    # def post(self):
+    #
+    #     welcome_template = JINJA_ENVIRONMENT.get_template('templates/welcome.html')
+    #     self.response.write(welcome_template.render({'login_url': users.create_login_url('/')}))
 
 
 class HostEventHandler(webapp2.RequestHandler): #making events
     def get(self):
-        # template_var = {} #logout
+        template_var = {} #logout
         # user = users.get_current_user()
         # print user
         # if user:
@@ -130,5 +138,6 @@ app = webapp2.WSGIApplication([
     ('/form', HostEventHandler),
     ('/confirm', ShowConfirmationHandler),
     ('/newsfeed', FindEventHandler),
-    ('/retrieve', RetrieveEventsHandler)
+    ('/retrieve', RetrieveEventsHandler),
+    ('/putuser', PutUserHandler)
 ], debug=True)

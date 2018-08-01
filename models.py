@@ -2,7 +2,7 @@ from google.appengine.ext import ndb
 
 class Event(ndb.Model):
     name = ndb.StringProperty(required=True, default = "")
-    title = ndb.StringProperty(required=True, default="")
+    #title = ndb.StringProperty(required=True, default="")
     address = ndb.StringProperty(required=True, default="")
     type = ndb.StringProperty(required=True, default="")
     date = ndb.StringProperty(required=True)
