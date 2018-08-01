@@ -23,7 +23,7 @@ class WelcomeHandler(webapp2.RequestHandler): #main page
 
 class HostEventHandler(webapp2.RequestHandler): #making events
     def get(self):
-        template_var = {} //logout
+        template_var = {} #logout
         user = users.get_current_user()
         if user:
             nickname = user.nickname()
@@ -38,10 +38,6 @@ class HostEventHandler(webapp2.RequestHandler): #making events
         self.response.write(form_template.render(template_var))
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> c394369ef671033960c58fbf95e5c52b414dfef6
 class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
     def post(self):
         vars_template = {
@@ -60,13 +56,7 @@ class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
         store = Event(name=vars_template['name'], description = vars_template['description'],
             type = vars_template['type'], date=vars_template['date'], time_start=vars_template['time_start'],
             time_end=vars_template['time_end'], address=vars_template['address'], people_needed=vars_template['people_needed'])
-<<<<<<< HEAD
         key = store.put()
-=======
-
-        key = store.put()
-
->>>>>>> c394369ef671033960c58fbf95e5c52b414dfef6
 
 class FindEventHandler(webapp2.RequestHandler): #newsfeed and searching for events
     def get(self):
