@@ -1,3 +1,5 @@
+let buttonList = []
+
 function new_element(tag_name, attributes, children=[]){
   el = document.createElement(tag_name)
   for (let attr in attributes){
@@ -10,12 +12,15 @@ function new_element(tag_name, attributes, children=[]){
 }
 
 function insert_event(desc, count){
+  interestButton = new_element('button', {'id': 'interest'+count, 'class': 'button', 'type': 'button'})
+
    let new_div = new_element('div', {'class': 'event'}, [
     new_element('div', {'class': 'event-header', 'style': 'width=500px;', 'style': 'background-color=cornflowerblue;'}),
     new_element('div', {'class': 'event-details', 'style': 'width=500px', 'style': 'height=300px'}, [
 
       new_element('div', {'id': 'left-side'+count, 'style': 'width=50%', 'style': 'display: inline-block'}),
-      new_element('div', {'id': 'right-side'+count, 'style': 'width=50%', 'style': 'display: inline-block'})
+      new_element('div', {'id': 'right-side'+count, 'style': 'width=50%', 'style': 'display: inline-block'}),
+      interestButton
   ])]);
 
    let container = document.querySelector("#news-feed");
@@ -24,13 +29,17 @@ function insert_event(desc, count){
    let right = document.querySelector("#right-side"+count);
 
    document.querySelector('.event-header').textContent += desc.name;
-
+   document.querySelector('.button').textContent += "I am interested!"
    left.textContent += desc.address +" " + desc.people_needed + " | ";
    right.textContent += desc.type + " " + desc.date + " " + desc.time_start + " to " + desc.time_end;
 
-   console.log(1)
+   buttonList.push(interestButton)
+   interestButton.addEventListener("click", () =>
+      alert("yaay, you are interested!"))
+   //console.log(1)
 }
 
+//displays events
 function show_events() {
   let count = 0;
   fetch('/retrieve', {'credentials': 'include'})
@@ -45,3 +54,8 @@ function show_events() {
 }
 
 show_events()
+
+//event listener for interest button
+but = document.querySelectorAll('button');
+console.log(but)
+console.log(buttonList)
