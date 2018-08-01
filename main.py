@@ -36,7 +36,7 @@ class HostEventHandler(webapp2.RequestHandler): #making events
             self.redirect('/')
         form_template = JINJA_ENVIRONMENT.get_template('templates/form.html')
         self.response.write(form_template.render(template_var))
-
+        
 class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
     def post(self):
         vars_template = {
