@@ -1,6 +1,26 @@
 body {
-  background-image: url("https://farm1.staticflickr.com/848/42862362115_eb15c5c54e_h.jpg");
+  background-color: white;
 }
+
+.event-header {
+  font-family: 'Coming Soon', cursive;
+}
+
+.button {
+  display: block;
+  width: 410px;
+  height: 140px;
+  text-align: center;
+  border-radius: 5px;
+  border-color: white;
+  color: black;
+  font-weight: bold;
+  margin: auto;
+  color: black;
+  background-color: #B6EBFF;
+  box-shadow: 0 0 0 4px #fff;
+}
+
 .box{
   height: 200px;
   width: 200px;

@@ -47,8 +47,8 @@
          <input type = "text" id= "event-description" name = "description" required></br>
        </div>
        <div class="container" id="eventdate">
-         <label class="question-desciption"> DATE: </label><br>
-         <input type = "text" id= "event-date" name = "date" required></br>
+         <label class="question-desciption"> DATE: MM/DD/YYYY </label><br>
+         <input type = "text" id= "event-date" name = "date" required pattern=(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d></br>
        </div>
        <div class="container" id="eventtime">
          <div class="container" id="eventbegin">
