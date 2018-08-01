@@ -23,7 +23,7 @@ class WelcomeHandler(webapp2.RequestHandler): #main page
 
 class HostEventHandler(webapp2.RequestHandler): #making events
     def get(self):
-        template_var = {} //logout
+        template_var = {} #logout
         user = users.get_current_user()
         if user:
             nickname = user.nickname()
@@ -36,6 +36,7 @@ class HostEventHandler(webapp2.RequestHandler): #making events
             self.redirect('/')
         form_template = JINJA_ENVIRONMENT.get_template('templates/form.html')
         self.response.write(form_template.render(template_var))
+
 
 class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
     def post(self):
