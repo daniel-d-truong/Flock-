@@ -20,8 +20,11 @@ function insert_event(desc, count){
 
       new_element('div', {'id': 'left-side'+count, 'style': 'width=50%', 'style': 'display: inline-block'}),
       new_element('div', {'id': 'right-side'+count, 'style': 'width=50%', 'style': 'display: inline-block'}),
+      //new_element('a', {'href': '{{event_url}}' },[
       interestButton
+      //]
   ])]);
+
 
    let container = document.querySelector("#news-feed");
    container.insertBefore(new_div, container.children[0]);
