@@ -12,7 +12,7 @@ function new_element(tag_name, attributes, children=[]){
 }
 
 function insert_event(desc, count){
-  interestButton = new_element('button', {'id': 'interest'+count, 'class': 'button', 'type': 'button'})
+  interestButton = new_element('button', {'id': 'interest'+count, 'class': 'button', 'type': 'button', 'name': 'button'+count})
 
    let new_div = new_element('div', {'class': 'event'}, [
     new_element('div', {'class': 'event-header', 'style': 'width=500px;', 'style': 'background-color=cornflowerblue;'}),
@@ -37,7 +37,8 @@ function insert_event(desc, count){
 
    //buttonList.push(interestButton)
    interestButton.addEventListener("click", () =>
-      alert("yaay, you are interested!"))
+      alert("yaay, you are interested!");
+      )
    //console.log(1)
 }
 

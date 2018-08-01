@@ -2,6 +2,7 @@ import webapp2
 import jinja2
 import os
 #import stream
+import time
 import json
 from models import Event, Profile, Relation
 from google.appengine.ext import ndb
@@ -28,16 +29,18 @@ class PutUserHandler(webapp2.RequestHandler):
         }
         new_profile=Profile(first_name=template_vars['first_name'], last_name=template_vars['last_name'],
             city=template_vars['city'], state=template_vars['state'], id=template_vars['id'])
-        print "woww"
+        print "wowww"
         new_profile.put()
+        time.sleep(0.5)
         self.redirect('/')
 
 class WelcomeHandler(webapp2.RequestHandler): #main page
     def get(self):
         us = users.get_current_user()
-
+        print (Profile.id)
+        print (us.user_id())
         current_users=Profile.query(Profile.id==us.user_id()).fetch()
-        print current_users
+        # print current_users
         if current_users==[]:
             template=JINJA_ENVIRONMENT.get_template('templates/user-signup.html')
             self.response.write(template.render())
