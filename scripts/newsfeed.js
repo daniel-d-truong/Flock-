@@ -12,7 +12,7 @@ function new_element(tag_name, attributes, children=[]){
 }
 
 function insert_event(desc, count){
-  interestButton = new_element('button', {'id': 'interest'+count, 'class': 'button', 'type': 'button', 'name': 'button'+count})
+  interestButton = new_element('a', {'href': "/event?k="+count, 'id': 'interest'+count, 'class': 'button', 'type': 'button', 'name': 'button'+count})
 
    let new_div = new_element('div', {'class': 'event'}, [
     new_element('div', {'class': 'event-header', 'style': 'width=500px;', 'style': 'background-color=cornflowerblue;'}),
@@ -23,7 +23,7 @@ function insert_event(desc, count){
       //new_element('a', {'href': '{{event_url}}' },[
       interestButton
       //]
-  ])]);
+    ])]);
 
 
    let container = document.querySelector("#news-feed");
@@ -32,7 +32,7 @@ function insert_event(desc, count){
    let right = document.querySelector("#right-side"+count);
 
    document.querySelector('.event-header').textContent += desc.name;
-   document.querySelector('.button').textContent += "I am interested!"
+   document.querySelector('.button').textContent += "I am interested"
    left.textContent += desc.address +" " + desc.people_needed + " | ";
    right.textContent += desc.type + " " + desc.date + " " + desc.time_start + " to " + desc.time_end;
 

@@ -6,7 +6,7 @@ body {
 .button {
   display: block;
   width: 150px;
-  height: 100px;
+  height: 70px;
   text-align: center;
   border-radius: 5px;
   border-color: white;
@@ -16,6 +16,7 @@ body {
   color: black;
   background-color: #B6EBFF;
   box-shadow: 0 0 0 4px #fff;
+  margin-right: 200px; 
 }
 
 .box{
@@ -76,5 +77,13 @@ input[type="radio"] {
 }
 
 #left-side {
-  float: left; 
+  float: left;
+}
+
+a {
+  font-family: 'Coming Soon', cursive;
+  text-align: center;
+  text-decoration: none;
+  line-height: 70px;
+  float: right;
 }
