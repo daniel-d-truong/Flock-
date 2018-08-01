@@ -58,7 +58,7 @@ class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
             time_end=vars_template['time_end'], address=vars_template['address'], people_needed=vars_template['people_needed'])
 
         key = store.put()
-
+        self.redirect('/newsfeed')
 class FindEventHandler(webapp2.RequestHandler): #newsfeed and searching for events
     def get(self):
         newsfeed_template = JINJA_ENVIRONMENT.get_template('templates/newsfeed.html')
