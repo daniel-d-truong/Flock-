@@ -38,8 +38,8 @@ function insert_event(desc, count){
 
    //buttonList.push(interestButton)
    interestButton.addEventListener("click", () =>
-      alert("yaay, you are interested!");
-      )
+      alert("yaay, you are interested!")
+    );
    //console.log(1)
 }
 
