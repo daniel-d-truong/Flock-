@@ -3,7 +3,7 @@ import jinja2
 import os
 #import stream
 import json
-from models import Event, User, Relation
+from models import Event, Profile, Relation
 from google.appengine.ext import ndb
 from google.appengine.api import users
 
@@ -18,22 +18,45 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 class WelcomeHandler(webapp2.RequestHandler): #main page
     def get(self):
+        us = users.get_current_user()
+
+        current_users=Profile.query(Profile.id==us.user_id()).fetch()
+        if current_users==[]:
+            template=JINJA_ENVIRONMENT.get_template('templates/user-signup.html')
+            self.response.write(template.render())
+        else:
+            welcome_template = JINJA_ENVIRONMENT.get_template('templates/welcome.html')
+            self.response.write(welcome_template.render({'login_url': users.create_login_url('/')}))
+
+    def post(self):
+        template_vars={
+            'first_name': self.request.get('firstname'),
+            'last_name': self.request.get('lastname'),
+            'city': self.request.get('city'),
+            'state': self.request.get('state'),
+            'id': users.get_current_user().user_id()
+        }
+        new_profile=Profile(first_name=template_vars['first_name'], last_name=template_vars['last_name'],
+            city=template_vars['city'], state=template_vars['state'], id=template_vars['id'])
+        key = new_profile.put()
         welcome_template = JINJA_ENVIRONMENT.get_template('templates/welcome.html')
         self.response.write(welcome_template.render({'login_url': users.create_login_url('/')}))
 
+
 class HostEventHandler(webapp2.RequestHandler): #making events
     def get(self):
-        template_var = {} #logout
-        user = users.get_current_user()
-        if user:
-            nickname = user.nickname()
-            logout_url = users.create_logout_url('/')
-            template_var = {
-                "logout_url": logout_url,
-                "nickname": nickname
-            }
-        else:
-            self.redirect('/')
+        # template_var = {} #logout
+        # user = users.get_current_user()
+        # print user
+        # if user:
+        #     nickname = user.nickname()
+        #     logout_url = users.create_logout_url('/')
+        #     template_var = {
+        #         "logout_url": logout_url,
+        #         "nickname": nickname
+        #     }
+        # else:
+        #     self.redirect('/')
         form_template = JINJA_ENVIRONMENT.get_template('templates/form.html')
         self.response.write(form_template.render(template_var))
 
