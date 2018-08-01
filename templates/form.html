@@ -3,18 +3,30 @@
  <html>
  <head>
    <title>Post a new event</title>
+
+   <!-- stylesheets in static-->
    <link href="/static/style.css" rel="stylesheet" />
+   <link href="/static/form.css" rel="stylesheet" />
+
+   <!-- Google Fonts-->
+   <link href="https://fonts.googleapis.com/css?family=Coming+Soon|Covered+By+Your+Grace|Dosis|Nunito|Permanent+Marker|Quicksand|Rock+Salt" rel="stylesheet">
+
  </head>
  <body>
    <h1>New Activity</h1>
+   <h2>Fill out this form completely to add advertise your activity/event.</h2>
 
    <form name="new-event" method = "post" action = "/confirm">
 
-     <label class="question-desciption"> Name of Event: </label><br>
-     <input type = "text" id= "event-name" name = "name" required></br>
+     <div class="container">
 
-     <label class="question-desciption"> Description of Event: </label><br>
-     <input type = "text" id= "event-description" name = "description" required></br>
+       <label class="question-desciption"> Name of Event: </label><br>
+       <input type = "text" id= "event-name" name = "name" required></br>
+
+       <label class="question-desciption"> Description of Event: </label><br>
+       <input type = "text" id= "event-description" name = "description" required></br>
+
+    </div>
 
      <label class="question-desciption"> Type of Event: </label><br>
      <input type = "text" id= "event-type" name = "type" required></br>
@@ -36,6 +48,8 @@
 
      <br/><input type = "submit" value="Submit" id= "submit-button" onclick="validateForm()">
 
+   </form>
+
      <script>
 
       function validateForm() {
@@ -51,14 +65,6 @@
           }
         }
         return true;
-      };
-
-      function confirmSubmit() {
-
-      };
-
-      function validateAndConfirm(){
-
       };
 
      </script>
