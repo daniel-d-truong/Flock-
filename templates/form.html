@@ -14,39 +14,65 @@
  </head>
  <body>
    <h1>New Activity</h1>
-   <h2>Fill out this form completely to add advertise your activity/event.</h2>
+   <h2>Fill out this form completely to create an activity or event.</h2>
+   <br />
 
    <form name="new-event" method = "post" action = "/confirm">
 
-     <div class="container">
-
-       <label class="question-desciption"> Name of Event: </label><br>
+     <!-- id without space is container -->
+     <div class="container" id="eventname">
+       <label class="question-desciption"> NAME OF ACTIVITY: </label><br>
        <input type = "text" id= "event-name" name = "name" required></br>
+     </div>
 
-       <label class="question-desciption"> Type of Event: </label><br>
-       <input type = "text" id= "event-type" name = "type" required></br>
+     <div class="container" id="eventtype">
+       <label class="question-desciption"> TYPE OF ACTIVITY: </label><br>
+       <div class="container" id="typeradiobuttons">
+         <input type="radio" id="type1" name="type" value="Athletic" required>
+         <label for="type1" class="radio-choices">Athletic</label>
+         <input type="radio" id="type1" name="type" value="Gaming">
+         <label for="type1" class="radio-choices">Gaming</label>
+         <input type="radio" id="type1" name="type" value="Party">
+         <label for="type1" class="radio-choices">Party</label>
+         <input type="radio" id="type1" name="type" value="Volunteer">
+         <label for="type1" class="radio-choices">Volunteer</label>
+         <input type="radio" id="type1" name="type" value="Performance">
+         <label for="type1" class="radio-choices">Performance</label>
+       </div>
+     </div>
 
-    </div>
+    <div class="container" id="dateandtime">
+       <div class="container" id="eventdescription">
+         <label class="question-desciption"> ACTIVITY DESCRIPTION: </label><br>
+         <input type = "text" id= "event-description" name = "description" required></br>
+       </div>
+       <div class="container" id="eventdate">
+         <label class="question-desciption"> DATE: </label><br>
+         <input type = "text" id= "event-date" name = "date" required></br>
+       </div>
+       <div class="container" id="eventtime">
+         <div class="container" id="eventbegin">
+           <label class="question-desciption"> START TIME: </label><br>
+           <input type = "time" id= "event-begin" name = "time_start" required></br>
+         </div>
+         <div class="container" id="eventend">
+           <label class="question-desciption"> END TIME: </label><br>
+           <input type = "time" id= "event-end" name = "time_end" required></br>
+         </div>
+       </div>
+     </div>
 
-     <label class="question-desciption"> Description of Event: </label><br>
-     <input type = "text" id= "event-description" name = "description" required></br>
+     <div class="container" id="eventdescription">
+       <label class="question-desciption"> ADDRESS: </label><br>
+       <input type = "text" id= "event-address" name = "address" required> </br>
+     </div>
 
-     <label class="question-desciption"> Date of Event: </label><br>
-     <input type = "text" id= "event-date" name = "date" required></br>
+     <div class="container" id="populationcount">
+       <label class="question-desciption"> NUMBER OF PEOPLE NEEDED: </label><br>
+       <input type = "number" id= "population-count" name = "people_needed" required pattern=[1-50]> </br>
+     </div>
 
-     <label class="question-desciption"> Start Time of Event:</label><br>
-     <input type = "text" id= "event-begin" name = "time_start" required></br>
-
-     <label class="question-desciption"> End Time of Event: </label><br>
-     <input type = "text" id= "event-end" name = "time_end" required></br>
-
-     <label class="question-desciption"> Address of Event: </label><br>
-     <input type = "text" id= "event-address" name = "address" required> </br>
-
-     <label class="question-desciption"> Number of People Needed: </label><br>
-     <input type = "number" id= "population-count" name = "people_needed" required pattern=[1-50]> </br>
-
-     <br/><input type = "submit" value="Submit" id= "submit-button" onclick="validateForm()">
+     <br/><input type = "submit" value="SUBMIT" id= "submit-button" onclick="validateForm()">
 
    </form>
 

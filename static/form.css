@@ -21,13 +21,14 @@ h2 {
   font-size: 30px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="time"] {
   width: 500px;
   height: 30px;
   margin-left: 100px;
   margin-bottom: 50px;
   font-family: 'Coming Soon', cursive;
   font-size: 20px;
+  text-align: top;
 }
 
 input[type="number"] {
@@ -39,6 +40,54 @@ input[type="number"] {
   font-size: 20px;
 }
 
-.container {
-    display: inline-block;
+input[type="radio"] {
+  width: 50px;
+  height: 30px;
+  margin-left: 100px;
+  margin-bottom: 50px;
+  font-family: 'Coming Soon', cursive;
+  font-size: 20px;
+}
+
+#eventname, #eventdescription {
+  float: left;
+}
+
+.radio-choices {
+  font-size: 30px;
+}
+
+#typeradiobuttons {
+  display: block;
+}
+
+#event-description {
+  height: 150px;
+}
+
+#event-begin, #event-end {
+  width: 150px;
+}
+
+#eventbegin {
+  float: left;
+}
+
+#event-address {
+  height: 60px;
+}
+
+input[type=submit] {
+  background-color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #33C7FF;
+  font-size:30px;
+  font-weight: bold;
+  line-height: 1.4;
+  padding: 10px;
+  width: 200px;
+  font-family: 'Coming Soon', cursive;
+  height: 80px;
 }
