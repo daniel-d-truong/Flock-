@@ -4,17 +4,17 @@ body {
 }
 .button {
   display: block;
-  width: 250px;
-  height: 200px;
+  width: 310px;
+  height: 140px;
   background: #4E9CAF;
   padding: 10px;
   text-align: center;
   border-radius: 5px;
-  color: white;
+  color: black;
   font-weight: bold;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
+  margin: 0 auto;
 }
 
 .button span {
