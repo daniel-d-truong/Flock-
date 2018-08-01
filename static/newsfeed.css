@@ -1,6 +1,11 @@
 body {
-  background-image: url("https://farm1.staticflickr.com/848/42862362115_eb15c5c54e_h.jpg");
+  background-color: white;
 }
+
+.event-header {
+  font-family: 'Coming Soon', cursive;
+}
+
 .box{
   height: 200px;
   width: 200px;

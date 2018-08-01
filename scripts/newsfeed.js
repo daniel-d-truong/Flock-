@@ -23,6 +23,7 @@ function insert_event(desc, count){
       interestButton
   ])]);
 
+
    let container = document.querySelector("#news-feed");
    container.insertBefore(new_div, container.children[0]);
    let left = document.querySelector("#left-side"+count);

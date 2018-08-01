@@ -56,3 +56,8 @@ h1 {
 #rightbutton {
   float: right;
 }
+
+#loginlink {
+  margin-top: 200px;
+  text-align: center; 
+}
