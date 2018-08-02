@@ -26,11 +26,14 @@ class PutUserHandler(webapp2.RequestHandler):
             'last_name': self.request.get('lastname'),
             'city': self.request.get('city'),
             'state': self.request.get('state'),
-            'id': users.get_current_user().user_id()
+            'id': users.get_current_user().user_id(),
+            #'email': users.get_current_user().email()
         }
 
         new_profile=Profile(first_name=template_vars['first_name'], last_name=template_vars['last_name'],
-            city=template_vars['city'], state=template_vars['state'], id=template_vars['id'])
+            city=template_vars['city'], state=template_vars['state'], id=template_vars['id'],
+            #email=template_vars['email']
+            )
 
         print "wowww"
         new_profile.put()
@@ -110,8 +113,19 @@ class FindEventHandler(webapp2.RequestHandler): #newsfeed and searching for even
 
 class RetrieveEventsHandler(webapp2.RequestHandler):
     def get(self):
-        activity_type = self.request.get('type')
         self.response.content_type = 'text/json'
+        activity_type = self.request.get('type')
+        activity_city=self.request.get('city')
+        activity_state=self.request.get('state')
+        # vars_dict = {
+        #     'type': activity_type,
+        #     'city': activity_city,
+        #     'state': activity_state
+        # }
+        # for item in vars_dict:
+
+
+
         if activity_type:
             print "We're filtering"
             new_events = Event.query(Event.type == activity_type).fetch()
