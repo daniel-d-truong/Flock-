@@ -12,7 +12,7 @@ function new_element(tag_name, attributes, children=[]){
 }
 
 function insert_event(desc, count){
-  interestButton = new_element('a', {'href': "/event?k="+count, 'id': 'interest'+count, 'class': 'button', 'type': 'button', 'name': 'button'+count})
+  interestButton = new_element('a', {'href': "/event?k="+desc.event_id, 'id': 'interest'+count, 'class': 'button', 'type': 'button', 'name': 'button'+count})
 
    let new_div = new_element('div', {'class': 'event'}, [
     new_element('div', {'class': 'event-header', 'style': 'width=500px;', 'style': 'background-color=cornflowerblue;'}),

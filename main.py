@@ -8,7 +8,8 @@ from models import Event, Profile, Relation
 from google.appengine.ext import ndb
 from google.appengine.api import users
 
-# events_dict = {
+new_events_list = []
+
 #
 # }
 
@@ -132,14 +133,43 @@ class RetrieveEventsHandler(webapp2.RequestHandler):
                 'time_end': i.time_end,
                 'address': i.address,
                 'people_needed': i.people_needed,
+                'event_id': i.key.id()
+
             #'created_at':
             })
         self.response.write(json.dumps(new_events_list))
 
 class AddUserToEvent(webapp2.RequestHandler):
     def get(self):
-        print self.request.get("k")
+        key = int((self.request.get('k'))) #event key
+        event_key = ndb.Key(Event, key)
+        main_event = Event.query(event_key == Event.key).get()
+        logged_in_user = users.get_current_user()
+        prof = Profile.query(logged_in_user.user_id() == Profile.id).get()
+        new_relation = Relation(user_key = prof.key, event_key=main_event.key)
+        current_relation = Relation.query(ndb.AND(Relation.user_key==prof.key, Relation.event_key==main_event.key)).get()
 
+
+        if current_relation == None:
+            new_relation.put()
+            time.sleep(.5)
+
+        user_events = Relation.query(Relation.event_key == event_key).fetch()
+        profiles = []
+
+        for u in user_events:
+            profile = u.user_key.get()
+            profiles.append(profile)
+        profiles.sort()
+        template=JINJA_ENVIRONMENT.get_template('templates/event.html')
+        self.response.write(template.render(Profile=profiles, event=main_event))
+        #new_relation.put()
+
+        print prof
+        print ""
+        print main_event
+        print current_relation
+        print user_events
 
 app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
