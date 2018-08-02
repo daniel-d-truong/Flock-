@@ -80,6 +80,7 @@ input[type="radio"] {
 
 input[type=submit] {
   background-color: #fff;
+  margin-right: auto;
   border: 0;
   border-radius: 5px;
   cursor: pointer;
@@ -91,6 +92,10 @@ input[type=submit] {
   width: 200px;
   font-family: 'Coming Soon', cursive;
   height: 80px;
+}
+
+#submit-button {
+  margin: auto; 
 }
 
 #event-state {

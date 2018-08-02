@@ -64,7 +64,7 @@ body {
 }
 
 .filterlabel, #typeradiobuttons, #submit-button {
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 #submit-button {
@@ -82,6 +82,10 @@ input[type="radio"] {
 
 #left-side {
   float: left;
+}
+
+#eventstate, #eventcity {
+  margin-left: 15px;
 }
 
 a {
