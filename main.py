@@ -26,11 +26,14 @@ class PutUserHandler(webapp2.RequestHandler):
             'last_name': self.request.get('lastname'),
             'city': self.request.get('city'),
             'state': self.request.get('state'),
-            'id': users.get_current_user().user_id()
+            'id': users.get_current_user().user_id(),
+            #'email': users.get_current_user().email()
         }
 
         new_profile=Profile(first_name=template_vars['first_name'], last_name=template_vars['last_name'],
-            city=template_vars['city'], state=template_vars['state'], id=template_vars['id'])
+            city=template_vars['city'], state=template_vars['state'], id=template_vars['id'],
+            #email=template_vars['email']
+            )
 
         print "wowww"
         new_profile.put()

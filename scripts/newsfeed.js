@@ -19,6 +19,7 @@ function insert_event(desc, count){
     new_element('div', {'class': 'event-details', 'style': 'width=500px', 'style': 'height=300px'}, [
 
       new_element('div', {'id': 'left-side'+count, 'style': 'width=50%', 'style': 'display: inline-block'}),
+      new_element('br', {} ),
       new_element('div', {'id': 'right-side'+count, 'style': 'width=50%', 'style': 'display: inline-block'}),
       //new_element('a', {'href': '{{event_url}}' },[
       interestButton
@@ -33,8 +34,9 @@ function insert_event(desc, count){
 
    document.querySelector('.event-header').textContent += desc.name;
    document.querySelector('.button').textContent += "I am interested"
-   left.textContent += desc.address +" " + desc.city + " " + desc.state + " "+ desc.people_needed + " ";
-   right.textContent += desc.type + " " + desc.date + " " + desc.time_start + " to " + desc.time_end;
+   left.textContent += desc.address +" " + desc.city + " " + desc.state ;
+
+   right.textContent += "People needed: "+desc.people_needed + ", Type: " +desc.type + ", Date: " + desc.date + ", Time: " + desc.time_start + " to " + desc.time_end;
 
    //buttonList.push(interestButton)
    interestButton.addEventListener("click", () =>

@@ -20,6 +20,7 @@ class Profile(ndb.Model):
     city = ndb.StringProperty(required=True)
     state = ndb.StringProperty(required=True)
     id = ndb.StringProperty(required=True)
+    #email = ndb.StringProperty(required=True)
 
 class Relation(ndb.Model):
     user_key = ndb.KeyProperty(Profile)

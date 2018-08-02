@@ -26,6 +26,10 @@ body {
   float: center;
 }
 
+.event{
+  background-color: #FFFFFE;
+}
+
 .sidenav {
   width: 220px;
   position: fixed;
