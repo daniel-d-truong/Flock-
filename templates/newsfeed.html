@@ -11,13 +11,57 @@
 
 <!-- Filter Navigation Menu -->
    <div class="sidenav">
-     <h1>Filter Results</h1>
-   </div>
+     <form name="filter">
+
+       <h1 id="filtertitle">Filter Results</h1>
+
+       <!-- Sort by type -->
+
+       <div class="container" id="eventtype">
+         <label class="filterlabel"> TYPE OF ACTIVITY: </label><br>
+
+         <div class="container" id="typeradiobuttons">
+
+           <div class="container" id="row1" class="inputgroup">
+             <input type="radio" id="type1" name="type" value="Athletic" required>
+             <label for="type1" class="radio-choices">Athletic</label>
+           </div>
+
+           <div class="container" id="row2" class="inputgroup">
+             <input type="radio" id="type1" name="type" value="Gaming" required>
+             <label for="type1" class="radio-choices">Gaming</label>
+           </div>
+
+           <div class="container" id="row3" class="inputgroup">
+             <input type="radio" id="type1" name="type" value="Party">
+             <label for="type1" class="radio-choices">Party</label>
+           </div>
+
+           <div class="container" id="row4" class="inputgroup">
+             <input type="radio" id="type1" name="type" value="Volunteer">
+             <label for="type1" class="radio-choices">Volunteer</label>
+           </div>
+
+           <div class="container" id="row5" class="inputgroup">
+             <input type="radio" id="type1" name="type" value="Performance">
+             <label for="type1" class="radio-choices">Performance</label>
+           </div>
+
+         </div>
+       </div>
+
+     <!-- Submit button -->
+
+     <br/><input type = "submit" value="SUBMIT" id= "submit-button">
+
+   </form>
+ </div>
 
 <!-- title of page -->
 
-<div id="news-feed" style="height: 300px">
-</div>
+  <div id="title">
+    <h1 id="title">Activities</h1>
+  </div>
 
 <!-- Newsfeed Posts -->
    <div id="news-feed" style="height: 300px">

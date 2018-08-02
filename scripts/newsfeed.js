@@ -32,7 +32,7 @@ function insert_event(desc, count){
    let right = document.querySelector("#right-side"+count);
 
    document.querySelector('.event-header').textContent += desc.name;
-   document.querySelector('.button').textContent += "I am interested!"
+   document.querySelector('.button').textContent += "I am interested"
    left.textContent += desc.address +" " + desc.people_needed + " | ";
    right.textContent += desc.type + " " + desc.date + " " + desc.time_start + " to " + desc.time_end;
 
