@@ -2,7 +2,7 @@ from google.appengine.ext import ndb
 
 class Event(ndb.Model):
     name = ndb.StringProperty(required=True, default = "")
-    title = ndb.StringProperty(required=True, default="")
+    #title = ndb.StringProperty(required=True, default="")
     address = ndb.StringProperty(required=True, default="")
     type = ndb.StringProperty(required=True, default="")
     date = ndb.StringProperty(required=True)
@@ -12,13 +12,13 @@ class Event(ndb.Model):
     people_needed = ndb.IntegerProperty(required=True, default=0)
     #created_at = ndb.DateTimeProperty(required=True)
 
-class User(ndb.Model):
+class Profile(ndb.Model):
     first_name = ndb.StringProperty(required=True)
     last_name = ndb.StringProperty(required=True)
-    address = ndb.StringProperty(required=True)
-    email_address = ndb.StringProperty(required=True)
+    city = ndb.StringProperty(required=True)
+    state = ndb.StringProperty(required=True)
     id = ndb.StringProperty(required=True)
 
 class Relation(ndb.Model):
-    user_key = ndb.KeyProperty(User)
+    user_key = ndb.KeyProperty(Profile)
     event_key = ndb.KeyProperty(Event)
