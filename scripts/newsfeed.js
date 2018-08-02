@@ -33,7 +33,7 @@ function insert_event(desc, count){
 
    document.querySelector('.event-header').textContent += desc.name;
    document.querySelector('.button').textContent += "I am interested"
-   left.textContent += desc.address +" " + desc.people_needed + " | ";
+   left.textContent += desc.address +" " + desc.city + " " + desc.state + " "+ desc.people_needed + " ";
    right.textContent += desc.type + " " + desc.date + " " + desc.time_start + " to " + desc.time_end;
 
    //buttonList.push(interestButton)

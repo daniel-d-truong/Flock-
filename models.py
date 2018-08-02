@@ -4,6 +4,8 @@ class Event(ndb.Model):
     name = ndb.StringProperty(required=True, default = "")
     #title = ndb.StringProperty(required=True, default="")
     address = ndb.StringProperty(required=True, default="")
+    state = ndb.StringProperty(required=True, default="")
+    city = ndb.StringProperty(required=True, default="")
     type = ndb.StringProperty(required=True, default="")
     date = ndb.StringProperty(required=True)
     time_start = ndb.StringProperty(required=True) #need to learn how this works
