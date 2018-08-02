@@ -46,7 +46,7 @@ function insert_event(desc, count){
 //displays events
 function show_events() {
   let count = 0;
-  fetch('/retrieve', {'credentials': 'include'})
+  fetch('/retrieve' + window.location.search, {'credentials': 'include'})
     .then((data) => {return data.json()})
     .then((json) => {
       for (let i in json) {
