@@ -1,20 +1,42 @@
 <head>
   <title> EmailList </title>
-  <link rel ='stylesheet' href='css/emaillist.css'
+  <link rel ='stylesheet' href='static/style.css' />
+  <style>
+    #emaillist{
+      background-color: white;
+    }
+    #contact-info{
+      width: 85%;
+      float: right;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <table id='emaillist' style='width: 100%'>
-    <tr>
-      <th> Name: </th>
-      <th> City: </th>
-      <th> Email: </th>
-    </tr>
-    {% for Profil in Profile %}
+  <div id='newsfeed'>
+    <a href='/newsfeed'> Back to newsfeed </a>
+  </div>
+  <div id='title'>
+    <h3> {{event.name}} </h3>
+  </div>
+
+  <div id='contact-info'>
+
+    <table id='emaillist' style='width: 100%'>
       <tr>
-        <td style='text-align: center; vertical-align: middle;'>{{Profil.last_name + ', ' + Profil.first_name}}</td>
-        <td style='text-align: center; vertical-align: middle;'>{{Profil.city}}</td>
-        <td style='text-align: center; vertical-align: middle;'>{{Profil.state}}</td>
-  </td>
+        <th> Name: </th>
+        <th> City: </th>
+        <th> State: </th>
       </tr>
-    {% endfor %}
-  </table>
+      {% for Profil in Profile %}
+        <tr>
+          <td style='text-align: center; vertical-align: middle;'>{{Profil.last_name + ', ' + Profil.first_name}}</td>
+          <td style='text-align: center; vertical-align: middle;'>{{Profil.city}}</td>
+          <td style='text-align: center; vertical-align: middle;'>{{Profil.state}}</td>
+    </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  </div>
+</body>
