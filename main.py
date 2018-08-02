@@ -111,12 +111,20 @@ class FindEventHandler(webapp2.RequestHandler): #newsfeed and searching for even
 class RetrieveEventsHandler(webapp2.RequestHandler):
     def get(self):
         activity_type = self.request.get('type')
+        activity_state = self.request.get('state')
+        activity_city = self.request.get('city')
         self.response.content_type = 'text/json'
-        if activity_type:
-            print "We're filtering"
+        if activity_city:
+            new_events = Event.query(Event.city == activity_city).fetch()
+            if activity_state:
+                new_events = Event.query(Event.city == activity_city and Event.state == activity_state).fetch()
+                if activity_type:
+                    new_events = Event.query(Event.city == activity_city and Event.state == activity_state and Event.type == activity_type).fetch()
+        elif activity_state:
+            new_events = Event.query(Event.state == activity_state).fetch()
+        elif activity_type:
             new_events = Event.query(Event.type == activity_type).fetch()
         else:
-            print "We're getting everything"
             new_events = Event.query().fetch()
         new_events_list = []
         for i in new_events: #i is the event object that is an element
