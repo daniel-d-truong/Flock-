@@ -98,29 +98,20 @@ class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
 class FindEventHandler(webapp2.RequestHandler): #newsfeed and searching for events
     def get(self):
         newsfeed_template = JINJA_ENVIRONMENT.get_template('templates/newsfeed.html')
-        list_of_events = Event.query().fetch()
-        # print (list_of_events)
-        html_vars= {
-
-        }
-
-        for item in range(len(list_of_events)):
-            html_vars[list_of_events[item].put()] = list_of_events[item]
-
-        for i in html_vars:
-            temp_event = html_vars[i]
-            # self.response.write('<div style=height:300px>' + temp_event.name + temp_event.title + temp_event.address
-            #     + temp_event.type + temp_event.date + temp_event.time_start + temp_event.time_end + temp_event.description
-            #     + str(temp_event.people_needed) + '</div>')
-            # self.response.write('<br>')
         self.response.write(newsfeed_template.render())
 
 #class SignUpHandler(webapp2.RequestHandler)
 
 class RetrieveEventsHandler(webapp2.RequestHandler):
     def get(self):
+        activity_type = self.request.get('type')
         self.response.content_type = 'text/json'
-        new_events = Event.query().fetch()
+        if activity_type:
+            print "We're filtering"
+            new_events = Event.query(Event.type == activity_type).fetch()
+        else:
+            print "We're getting everything"
+            new_events = Event.query().fetch()
         new_events_list = []
         for i in new_events: #i is the event object that is an element
             new_events_list.append({
