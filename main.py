@@ -85,6 +85,8 @@ class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
             'time_start': self.request.get('time_start'),
             'time_end': self.request.get('time_end'),
             'address': self.request.get('address'),
+            'city': self.request.get('city'),
+            'state': self.request.get('state'),
             'people_needed': int (self.request.get('people_needed')),
             #'created_at':
         }
@@ -92,9 +94,12 @@ class ShowConfirmationHandler(webapp2.RequestHandler): #after event is made
         self.response.write(confirm_template.render(vars_template))
         store = Event(name=vars_template['name'], description = vars_template['description'],
             type = vars_template['type'], date=vars_template['date'], time_start=vars_template['time_start'],
-            time_end=vars_template['time_end'], address=vars_template['address'], people_needed=vars_template['people_needed'])
+            time_end=vars_template['time_end'], address=vars_template['address'], people_needed=vars_template['people_needed'],
+            city=vars_template['city'], state=vars_template['state'])
 
         key = store.put()
+        time.sleep(0.5)
+
         self.redirect('/newsfeed')
 class FindEventHandler(webapp2.RequestHandler): #newsfeed and searching for events
     def get(self):
@@ -123,6 +128,8 @@ class RetrieveEventsHandler(webapp2.RequestHandler):
                 'time_start': i.time_start,
                 'time_end': i.time_end,
                 'address': i.address,
+                'state': i.state,
+                'city': i.city,
                 'people_needed': i.people_needed,
                 'event_id': i.key.id()
 

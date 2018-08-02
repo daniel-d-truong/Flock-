@@ -77,6 +77,7 @@ input[type="radio"] {
   height: 60px;
 }
 
+
 input[type=submit] {
   background-color: #fff;
   border: 0;
@@ -90,4 +91,13 @@ input[type=submit] {
   width: 200px;
   font-family: 'Coming Soon', cursive;
   height: 80px;
+}
+
+#event-state {
+  height: 60px;
+  width: 100px;
+}
+#event-city {
+  width: 200px;
+  display: inline;
 }

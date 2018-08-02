@@ -67,6 +67,16 @@
        <input type = "text" id= "event-address" name = "address" required> </br>
      </div>
 
+     <div class="container" id="eventstate">
+       <label class="question-desciption"> STATE (Abbreviations): </label><br>
+       <input type = "text" id= "event-state" name = "state" required> </br>
+     </div>
+
+     <div class="container" id="eventcity">
+       <label class="question-desciption"> CITY: </label><br>
+       <input type = "text" id= "event-city" name = "city" required> </br>
+     </div>
+
      <div class="container" id="populationcount">
        <label class="question-desciption"> NUMBER OF PEOPLE NEEDED: </label><br>
        <input type = "number" id= "population-count" name = "people_needed" required pattern=[1-50]> </br>
@@ -79,7 +89,7 @@
      <script>
 
       function validateForm() {
-        let fields = ['name', 'description', 'type', 'date', 'time_start', 'time_end', 'address', 'people_needed'];
+        let fields = ['name', 'description', 'type', 'date', 'time_start', 'time_end', 'address', 'state', 'city', 'people_needed'];
         let length = fields.length;
         let fieldname;
 
