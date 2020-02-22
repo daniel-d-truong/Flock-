@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+ <html>
+ <head>
+   <title>Find Events!</title>
+   <link href="/static/newsfeed.css" rel="stylesheet" />
+   <link href="https://fonts.googleapis.com/css?family=Coming+Soon|Covered+By+Your+Grace|Dosis|Nunito|Permanent+Marker|Quicksand|Rock+Salt" rel="stylesheet">
+ </head>
+
+ <body>
+
+<!-- Filter Navigation Menu -->
+   <div class="sidenav">
+     <form name="filter">
+
+       <h1 id="filtertitle">Filter Results</h1>
+
+       <!-- Sort by type -->
+
+       <div class="container" id="eventtype">
+         <label class="filterlabel"> TYPE OF ACTIVITY: </label><br>
+
+         <div class="container" id="typeradiobuttons">
+
+           <div class="container" id="row1" class="inputgroup">
+             <input type="radio" id="type1" name="type" value="Athletic" >
+             <label for="type1" class="radio-choices">Athletic</label>
+           </div>
+
+           <div class="container" id="row2" class="inputgroup">
+             <input type="radio" id="type1" name="type" value="Gaming" >
+             <label for="type1" class="radio-choices">Gaming</label>
+           </div>
+
+           <div class="container" id="row3" class="inputgroup">
+             <input type="radio" id="type1" name="type" value="Party">
+             <label for="type1" class="radio-choices">Party</label>
+           </div>
+
+           <div class="container" id="row4" class="inputgroup">
+             <input type="radio" id="type1" name="type" value="Volunteer">
+             <label for="type1" class="radio-choices">Volunteer</label>
+           </div>
+
+           <div class="container" id="row5" class="inputgroup">
+             <input type="radio" id="type1" name="type" value="Performance">
+             <label for="type1" class="radio-choices">Performance</label>
+           </div>
+
+         </div>
+       </div>
+
+       <br />
+
+       <div class="container" id="eventstate">
+         <label class="question-desciption"> STATE: </label><br>
+         <input type = "text" id= "event-state" name = "state" > </br>
+       </div>
+
+<br />
+
+       <div class="container" id="eventcity">
+         <label class="question-desciption"> CITY: </label><br>
+         <input type = "text" id= "event-city" name = "city" > </br>
+       </div>
+
+
+     <!-- Submit button -->
+
+     <br/><input type = "submit" value="SUBMIT" id= "submit-button">
+
+   </form>
+ </div>
+
+<!-- title of page -->
+
+  <div id="title">
+    <h1 id="title">Activities</h1>
+  </div>
+
+<!-- Newsfeed Posts -->
+   <div id="news-feed" style="height: 300px">
+   </div>
+
+<!-- Populate newsfeed script -->
+   <script src="scripts/newsfeed.js"> </script>
+
+ </body>
+</html>

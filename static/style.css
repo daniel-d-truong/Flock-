@@ -1,0 +1,53 @@
+/* CSS file for the welcome page */
+body {
+  background-image: url("https://farm1.staticflickr.com/848/42862362115_eb15c5c54e_h.jpg");
+}
+
+.button {
+  display: block;
+  width: 310px;
+  height: 140px;
+  background: #4E9CAF;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* input */
+
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
+}

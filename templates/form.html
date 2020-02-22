@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+ <html>
+ <head>
+   <title>Post a new event</title>
+
+   <!-- stylesheets in static-->
+   <link href="/static/style.css" rel="stylesheet" />
+   <link href="/static/form.css" rel="stylesheet" />
+
+   <!-- Google Fonts-->
+   <link href="https://fonts.googleapis.com/css?family=Coming+Soon|Covered+By+Your+Grace|Dosis|Nunito|Permanent+Marker|Quicksand|Rock+Salt" rel="stylesheet">
+
+ </head>
+ <body>
+   <h1>New Activity</h1>
+   <h2>Fill out this form completely to create an activity or event.</h2>
+   <br />
+
+   <div>
+   <form name="new-event" method = "post" action = "/confirm">
+
+     <!-- id without space is container -->
+     <div class="container" id="eventname">
+       <label class="question-desciption"> NAME OF ACTIVITY: </label><br>
+       <input type = "text" id= "event-name" name = "name" required></br>
+     </div>
+
+     <div class="container" id="eventtype">
+       <label class="question-desciption"> TYPE OF ACTIVITY: </label><br>
+       <div class="container" id="typeradiobuttons">
+         <input type="radio" id="type1" name="type" value="Athletic" required>
+         <label for="type1" class="radio-choices">Athletic</label>
+         <input type="radio" id="type1" name="type" value="Gaming">
+         <label for="type1" class="radio-choices">Gaming</label>
+         <input type="radio" id="type1" name="type" value="Party">
+         <label for="type1" class="radio-choices">Party</label>
+         <input type="radio" id="type1" name="type" value="Volunteer">
+         <label for="type1" class="radio-choices">Volunteer</label>
+         <input type="radio" id="type1" name="type" value="Performance">
+         <label for="type1" class="radio-choices">Performance</label>
+       </div>
+     </div>
+
+    <div class="container" id="dateandtime">
+       <div class="container" id="eventdescription">
+         <label class="question-desciption"> ACTIVITY DESCRIPTION: </label><br>
+         <input type = "text" id= "event-description" name = "description" required></br>
+       </div>
+       <div class="container" id="eventdate">
+         <label class="question-desciption"> DATE: MM/DD/YYYY </label><br>
+         <input type = "text" id= "event-date" name = "date" required pattern=(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d></br>
+       </div>
+       <div class="container" id="eventtime">
+         <div class="container" id="eventbegin">
+           <label class="question-desciption"> START TIME: </label><br>
+           <input type = "time" id= "event-begin" name = "time_start" required></br>
+         </div>
+         <div class="container" id="eventend">
+           <label class="question-desciption"> END TIME: </label><br>
+           <input type = "time" id= "event-end" name = "time_end" required></br>
+         </div>
+       </div>
+     </div>
+
+     <div class="container" id="eventdescription">
+       <label class="question-desciption"> STREET ADDRESS: </label><br>
+       <input type = "text" id= "event-address" name = "address" required> </br>
+     </div>
+
+     <div class="container" id="eventstate">
+       <label class="question-desciption"> STATE (Abbreviations): </label><br>
+       <input type = "text" id= "event-state" name = "state" required> </br>
+     </div>
+
+     <div class="container" id="eventcity">
+       <label class="question-desciption"> CITY: </label><br>
+       <input type = "text" id= "event-city" name = "city" required> </br>
+     </div>
+
+     <div class="container" id="populationcount">
+       <label class="question-desciption"> NUMBER OF PEOPLE NEEDED: </label><br>
+       <input type = "number" id= "population-count" name = "people_needed" required pattern=[1-50]> </br>
+     </div>
+
+     <br/><input type = "submit" value="SUBMIT" id= "submit-button" onclick="validateForm()">
+
+   </form>
+   </div>
+
+     <script>
+
+      function validateForm() {
+        let fields = ['name', 'description', 'type', 'date', 'time_start', 'time_end', 'address', 'state', 'city', 'people_needed'];
+        let length = fields.length;
+        let fieldname;
+
+        for (i=0; i<length; i++) {
+          fieldname = fields[i];
+          if (document.forms['new-event'][fieldname].value === "") {
+            alert(fieldname + " can not be empty.")
+            return false;
+          }
+        }
+        return true;
+      };
+
+     </script>
+
+ </body>
+</html>
